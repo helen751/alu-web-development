@@ -1,0 +1,263 @@
+/* General Layout */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Header and Banner Combined Background */
+main section:first-of-type {
+  color: white;
+  text-align: center;
+  padding: 120px 20px 80px;
+  position: relative;
+  overflow: hidden; /* Ensures the pseudo-element doesn't bleed out */
+}
+
+/* This ::before pseudo-element now handles the entire background effect */
+main section:first-of-type::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Layering the gradient on top of the image */
+  background-image:
+    /* 1. The gradient from light navy to darker navy at the bottom */
+    linear-gradient(to bottom, rgba(7, 22, 41, 0.3) 0%, rgba(7, 22, 41, 0.8) 100%),
+    /* 2. The actual background image */
+    url('bg.png');
+  background-size: cover;
+  background-position: center center;
+  /* Applying the grayscale filter ONLY to the background */
+  filter: grayscale(100%);
+  z-index: -1; /* Places the background behind the content */
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  box-sizing: border-box;
+}
+
+header .logo img {
+  width: 100px;
+  margin-left: 100px;
+}
+
+header .nav-links {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  margin-right: 100px;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  color: #afa0c9;
+}
+
+header .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Banner Content */
+main section:first-of-type h1,
+main section:first-of-type p,
+main section:first-of-type button,
+main section:first-of-type div {
+    position: relative; /* Ensures banner content is above the pseudo-element */
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+button {
+  background-color: #8b4ef5;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  width: 20%;
+  margin-bottom: 150px;
+}
+
+button:hover {
+  background-color: #6b3bdb;
+}
+
+/* Tutorials Block */
+main section:first-of-type div div {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 16px;
+}
+
+.item-img {
+  width: 100%;
+  border-radius: 50%;
+  height: 70px;
+}
+
+main {
+  background: linear-gradient(to bottom, rgba(7, 22, 41, 0.3) 0%, rgba(7, 22, 41, 0.8) 100%);
+}
+
+/* Quote Section */
+main section:nth-of-type(2) {
+  background-color: #8b4ef5;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+blockquote {
+  font-size: 24px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.author {
+  font-weight: bold;
+}
+
+main section:nth-of-type(2) p {
+  font-size: 18px;
+}
+
+/* Membership Block */
+main section:nth-of-type(3) {
+  background-color: #1d2c44;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+main section:nth-of-type(3) h1 {
+  font-size: 36px;
+}
+
+main section:nth-of-type(3) button {
+  background-color: #ff4e79;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+}
+
+main section:nth-of-type(3) button:hover {
+  background-color: #e14a6b;
+}
+
+.membership-blocks {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.membership-block {
+  background-color: #323f56;
+  padding: 30px;
+  border-radius: 12px;
+  width: 180px;
+  text-align: center;
+}
+
+.membership-block img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.membership-block h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.membership-block p {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* FAQ Section */
+main section:nth-of-type(4) {
+  background-color: #f1f1f1;
+  padding: 60px 20px;
+}
+
+main section:nth-of-type(4) h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.faq-item {
+  background-color: white;
+  padding: 20px;
+  width: 48%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item h2 {
+  font-size: 22px;
+}
+
+.faq-item p {
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background-color: #323f56;
+  padding: 40px 20px;
+  color: white;
+  text-align: center;
+}
+
+footer img {
+  width: 140px;
+  margin-bottom: 20px;
+}
+
+footer a {
+  margin: 0 10px;
+}
+
+footer p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
